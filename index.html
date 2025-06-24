@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Height Prediction Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Height Prediction</h1>
+            <p>Predict your future height based on genetic and environmental factors</p>
+        </header>
+
+        <main>
+            <div class="prediction-form">
+                <h2>Enter Your Details</h2>
+                <form id="heightForm" action="predict.php" method="POST">
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentAge">Current Age (years):</label>
+                        <input type="number" id="currentAge" name="currentAge" min="1" max="25" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentHeight">Current Height (cm):</label>
+                        <input type="number" id="currentHeight" name="currentHeight" min="50" max="250" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motherHeight">Mother's Height (cm):</label>
+                        <input type="number" id="motherHeight" name="motherHeight" min="140" max="210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fatherHeight">Father's Height (cm):</label>
+                        <input type="number" id="fatherHeight" name="fatherHeight" min="140" max="210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nutrition">Nutrition Level:</label>
+                        <select id="nutrition" name="nutrition" required>
+                            <option value="">Select Nutrition Level</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Below Average</option>
+                            <option value="3">Average</option>
+                            <option value="4">Good</option>
+                            <option value="5">Excellent</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="predict-btn">Predict My Height</button>
+                </form>
+            </div>
+
+            <div id="result" class="prediction-result hidden">
+                <h2>Your Predicted Height</h2>
+                <div class="result-value" id="predictedHeight"></div>
+                <p id="resultDescription"></p>
+                <button id="resetBtn" class="predict-btn">Make Another Prediction</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 AI Height Prediction Tool | Uses machine learning algorithms for estimation</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
